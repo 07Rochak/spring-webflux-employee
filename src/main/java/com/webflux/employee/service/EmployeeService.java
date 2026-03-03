@@ -11,4 +11,6 @@ public interface EmployeeService {
     Mono<EmployeeDto> findById(String id);
 
     Flux<EmployeeDto> getAllEmployees();
+
+    Mono<EmployeeDto> updateEmployee(EmployeeDto employeeDto, String employeeId);
 }

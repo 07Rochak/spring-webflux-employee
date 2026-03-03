@@ -1,6 +1,7 @@
 package com.webflux.employee.controller;
 
 import com.webflux.employee.dto.EmployeeDto;
+import com.webflux.employee.repository.EmployeeRepository;
 import com.webflux.employee.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,11 @@ public class EmployeeController {
     @GetMapping
     public Flux<EmployeeDto> getAllEmployees(){
         return employeeService.getAllEmployees();
+    }
+
+    @PutMapping("/{id}")
+    public Mono<EmployeeDto> updateEmployeeDto(@RequestBody EmployeeDto employeeDto, @PathVariable("id") String employeeId){
+        return employeeService.updateEmployee(employeeDto, employeeId);
     }
 
 }
